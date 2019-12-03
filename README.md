@@ -14,3 +14,5 @@ node day1.js
 ```
 
 Each day will be done in its own `dayX.js` file, and it will output the result for part 1 and part 2 of the day's challenge.
+
+I am just implementing first / simplest solution that comes to mind. Not trying to optimize in any way since this is (mostly) just a waste of time / distraction from real work.
