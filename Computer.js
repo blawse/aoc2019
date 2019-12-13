@@ -6,7 +6,7 @@
  * @constructor
  *
  */
-function Computer(inputProgram, initialInputs) {
+function Computer(inputProgram, initialInputs, inputCallback) {
 
    const OP_ADD = 1;
    const OP_MULTIPLY = 2;
@@ -46,6 +46,10 @@ function Computer(inputProgram, initialInputs) {
       if (mode === 2) return memory[relbase + b] || 0;
 
       return 0;
+   }
+
+   function addInput(n) {
+      inputQueue.push(n);
    }
 
    /**
@@ -102,6 +106,10 @@ function Computer(inputProgram, initialInputs) {
                break;
 
             case  OP_INPUT:
+               if (inputQueue.length < 1) {
+                  addInput(inputCallback());
+               }
+
                let inValue = inputQueue.shift();
                memory[op.m1output] = inValue;
                p += 2;
